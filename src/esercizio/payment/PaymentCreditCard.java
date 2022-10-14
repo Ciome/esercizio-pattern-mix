@@ -1,6 +1,6 @@
 package esercizio.payment;
 
-public class PaymentCreditCard implements PaymentStrategy {
+public class PaymentCreditCard implements PaymentMethod {
 
 	@Override
 	public void pay(long cost) {

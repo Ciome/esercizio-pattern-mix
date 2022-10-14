@@ -1,5 +1,5 @@
 package esercizio.payment;
 
-public interface PaymentStrategy {
+public interface PaymentMethod {
 	public void pay(long cost);
 }

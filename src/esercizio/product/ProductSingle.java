@@ -24,7 +24,7 @@ public class ProductSingle implements Product {
 	}
 
 	@Override
-	public boolean contieneContenitore(Product contenitore) {
+	public boolean containsProduct(Product product) {
 		return false;
 	}
 
@@ -38,6 +38,7 @@ public class ProductSingle implements Product {
 		worker.visitProductSingle(this);
 	}
 	
+	@Override
 	public void setDiscount(Discount discount) {
 		this.discount = discount;
 	}

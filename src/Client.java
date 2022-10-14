@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import esercizio.payment.PaymentStrategy;
+import esercizio.payment.PaymentMethod;
 import esercizio.product.Product;
 
-public class Client implements ClientInterface {
+public class Client {	
 	
 	private String clientName;
 	private Cart cart;
-	private PaymentStrategy paymentMethod;
+	private PaymentMethod paymentMethod;
 	private List<Product> ownedProducts = new ArrayList<Product>();
 	
 	
@@ -17,7 +17,6 @@ public class Client implements ClientInterface {
 		this.cart = new Cart();
 	}
 
-	@Override
 	public void update(String notification) {
 		System.out.println("Il cliente " + this.getClientName() + " ha ricevuto il messaggio:\n" + notification);
 	}
@@ -34,7 +33,7 @@ public class Client implements ClientInterface {
 		cart.removeProduct(prodotto);
 	}
 	
-	public void addPaymentMethod(PaymentStrategy paymentMethod) {
+	public void addPaymentMethod(PaymentMethod paymentMethod) {
 		this.paymentMethod = paymentMethod;
 	}
 	

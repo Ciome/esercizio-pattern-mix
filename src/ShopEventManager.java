@@ -14,14 +14,14 @@ public final class ShopEventManager {
 		return instance;
 	}
 	
-	List<ClientInterface> clients = new ArrayList<ClientInterface>();
+	List<Client> clients = new ArrayList<Client>();
 	
-	public void subscribe(ClientInterface client) {
+	public void subscribe(Client client) {
 		if (!clients.contains(client))
 			clients.add(client);
 	}
 	
-	public void unsubscribe(ClientInterface client) {
+	public void unsubscribe(Client client) {
 		if (clients.contains(client))
 			clients.remove(client);
 	}
@@ -31,3 +31,4 @@ public final class ShopEventManager {
 	}
 	
 }
+

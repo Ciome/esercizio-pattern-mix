@@ -1,6 +1,6 @@
 package esercizio.payment;
 
-public class PaymentPayPal implements PaymentStrategy {
+public class PaymentPayPal implements PaymentMethod {
 
 	@Override
 	public void pay(long cost) {

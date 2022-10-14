@@ -23,10 +23,10 @@ public class ProductBundle implements Product {
 	
 	@Override
 	public void addProduct(Product product) {
-		if (!product.contieneContenitore(this)) {
+		if (!product.containsProduct(this)) {
 			this.includedProducts.add(product);
-			System.out.println("prodotto inserito");
-		} else System.out.println("impossibile inserire");
+			System.out.println("prodotto inserito nel bundle");
+		} else System.out.println("impossibile inserire nel bundle");
 	}
 
 	@Override
@@ -35,14 +35,14 @@ public class ProductBundle implements Product {
 		for (int i = 0; i < includedProducts.size(); i++) {
 			sum += includedProducts.get(i).getCost();
 		}
-		return sum;
+		return applyDiscount(sum);
 	}
 
 	@Override
-	public boolean contieneContenitore(Product contenitore) {
+	public boolean containsProduct(Product contenitore) {
 		if (contenitore.equals(this)) return true;
 		for (int i = 0; i < includedProducts.size(); i++) {
-			if (includedProducts.get(i).contieneContenitore(contenitore)) return true; 
+			if (includedProducts.get(i).containsProduct(contenitore)) return true; 
 		}
 		return false;
 	}
@@ -61,13 +61,17 @@ public class ProductBundle implements Product {
 	public List<Product> getIncludedProducts() {
 		return includedProducts;
 	}
-
+	
+	@Override
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
+	}
 
 	@Override
 	public long applyDiscount(long cost) {
 		if (discount != null)
 			return discount.applyDiscount(cost);
-		return discount.applyDiscount(cost);
+		return cost;
 	}
 
 }

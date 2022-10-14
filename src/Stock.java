@@ -19,6 +19,7 @@ public final class Stock {
 	
 	public void addProduct(Product product) {
 		productsStock.add(product);
+		ShopEventManager.getInstance().notifySubscribers(product);
 	}
 	
 	public void removeProduct(Product product) {
